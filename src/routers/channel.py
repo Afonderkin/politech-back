@@ -1,11 +1,10 @@
 from fastapi import APIRouter
 
-
 router = APIRouter(
-    prefix='/chanel',
-    tags=['chanel']
+    prefix='/channel',
+    tags=['channel']
 )
 
 @router.get('/{id}')
 async def get_channel(id: int):
-    pass
+    return None
