@@ -12,4 +12,8 @@ router = APIRouter(
 async def get_show(id: int):
     programm_info = get_programm_db(id)
     return {"name_programm": programm_info[0], "Desc": programm_info[1], "channel_id": programm_info[2],
+<<<<<<< HEAD
             "Tags": programm_info[3], 'ico-path': f'images/Иконки_телепередач/Иконки_Телепередачи_{programm_info[2]}/{programm_info[0]}/icon.jpg'}
+=======
+            "Tags": programm_info[3], 'ico-path': f'images/Иконки_телепередач/Иконки_Телепередачи_{programm_info[2]}/{programm_info[0]}/icon.jpg'}
+>>>>>>> eb842327159027ae13a6d93bd4469f9a73c7a774
