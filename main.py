@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.routers import chanel as chanel_router
+from src.routers import channel as chanel_router
 from src.routers import show as show_router
 from src.routers import search as search_router
 

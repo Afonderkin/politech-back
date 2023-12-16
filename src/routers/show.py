@@ -7,5 +7,5 @@ router = APIRouter(
 )
 
 @router.get('/{id}')
-async def get_show(id):
+async def get_show(id: int):
     pass
