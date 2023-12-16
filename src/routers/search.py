@@ -16,8 +16,8 @@ async def get_search_data(search_data, on_day, client_time):
     if len(channels['channels']) == 0:
         channels['channels'] = None
     programms = find_somethink(search_data, on_day, client_time)[1]
-    programms = {'programms': [{'id': el[0], 'name': el[1]} for el in programms]}
+    programms = {'programms': [{'id': el[0], 'name': el[1], 'tags': el[2]} for el in programms]}
     if len(programms['programms']) == 0:
-        programms['programms'] = None
+         programms['programms'] = None
     return [channels, programms]
 
