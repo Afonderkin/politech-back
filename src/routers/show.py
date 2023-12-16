@@ -1,11 +1,15 @@
 from fastapi import APIRouter
 
+from DataBase_functions import get_programm_db
 
 router = APIRouter(
     prefix='/show',
     tags=['show']
 )
 
+
 @router.get('/{id}')
 async def get_show(id: int):
-    pass
+    programm_info = get_programm_db(id)
+    return {"name_programm": programm_info[0], "Desc": programm_info[1], "channel_id": programm_info[2],
+            "Tags": programm_info[3]}
