@@ -1,4 +1,5 @@
 from sqlite3 import connect
+import pprint
 
 DB_PATH = "TVDataBase.db"
 
@@ -27,5 +28,19 @@ def get_programm_db(idprgramm):
         programm_info[3].append(programm_info_db[i][2])
     connection.close()
     return programm_info
+    #return {"name_programm": programm_info[0], "Desc": programm_info[1], "channel_id": programm_info[2], "Tags": programm_info[3]}
 
-print(get_programm_db(5))
+def get_channel_info(id_channel, on_day):
+    connection = connect(DB_PATH)
+    cursor = connection.cursor()
+    cursor.execute(f"""SELECT channelname, icopath, liveurl
+    FROM channel
+    WHERE idchannel = {id_channel}
+    """)
+    channel_info = cursor.fetchall()
+    cursor.execute(f"""SELECT programm.programmname, schedule.starttime, schedule.endtime
+    FROM programm, schedule
+    WHERE schedule.idchannel = {id_channel} AND schedule.idprogramm = programm.idprogramm AND schedule.date = '{on_day}'""")
+    schedule_info = cursor.fetchall()
+    return [channel_info, schedule_info]
+
