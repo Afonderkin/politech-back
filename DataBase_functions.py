@@ -13,7 +13,7 @@ def get_channels_db():
 def get_programm_db(idprgramm):
     connection = connect(DB_PATH)
     cursor = connection.cursor()
-    cursor.execute(f"""SELECT programm.ProgrammName, programm.Description, genre.Genre
+    cursor.execute(f"""SELECT programm.ProgrammName, programm.Description, genre.Genre, programm.ChannelID
     FROM programm, genre
     WHERE programm.IDprogramm = {idprgramm} AND genre.IDprogramm = programm.IDprogramm
     """)
@@ -21,9 +21,10 @@ def get_programm_db(idprgramm):
     programm_info = []
     programm_info.append(programm_info_db[0][0])
     programm_info.append(programm_info_db[0][1])
+    programm_info.append(programm_info_db[0][3])
     programm_info.append([])
     for i in range(len(programm_info_db)):
-        programm_info[2].append(programm_info_db[i][2])
+        programm_info[3].append(programm_info_db[i][2])
     connection.close()
     return programm_info
 
