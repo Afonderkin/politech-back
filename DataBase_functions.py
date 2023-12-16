@@ -64,6 +64,24 @@ def find_somethink(string, on_day, client_time):
             programm_list.pop(i)
         else:
             i+=1
-    return [channel_list, programm_list]
+    new_programm_list = []
+    for i in range(len(programm_list)):
+        cursor.execute(f"""SELECT programm.programmname, genre.genre, programm.channelid
+        FROM programm, genre
+        WHERE programm.programmname = '{programm_list[i][1]}' AND genre.idprogramm = programm.idprogramm
+        """)
+        from_db = cursor.fetchall()
+        old_to_new = []
+        old_to_new.append(from_db[0][0])
+        old_to_new.append(from_db[0][2])
+        old_to_new.append([])
+        for i in range(len(from_db)):
+            old_to_new[2].append(from_db[i][1])
+        new_programm_list.append(old_to_new)
 
-print(find_somethink('с', '2023-12-18', '05:37'))
+
+
+    connection.close()
+    return [channel_list, new_programm_list]
+
+#print(find_somethink('с', '2023-12-18', '05:37'))
