@@ -40,4 +40,8 @@ def get_channel_info(id_channel, on_day):
     FROM programm, schedule
     WHERE schedule.idchannel = {id_channel} AND schedule.idprogramm = programm.idprogramm AND schedule.date = '{on_day}'""")
     schedule_info = cursor.fetchall()
+<<<<<<< HEAD
     return [channel_info, schedule_info]
+=======
+    return [channel_info, schedule_info]
+>>>>>>> 4400f065141ef2b5012aff071519fed0b764d438
