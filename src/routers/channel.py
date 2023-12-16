@@ -7,5 +7,5 @@ router = APIRouter(
 )
 
 @router.get('/{id}')
-async def get_chanel(id):
+async def get_channel(id: int):
     pass
