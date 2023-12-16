@@ -25,8 +25,8 @@ def create_programmdb():
     CREATE TABLE IF NOT EXISTS programm(
     IDprogramm INTEGER PRIMARY KEY,
     ProgrammName TEXT,
-    ChannelID INTEGER,
     Description TEXT,
+    ChannelID INTEGER,
     FOREIGN KEY (ChannelID) REFERENCES channel (IDchannel)
     )""")
     connection.commit()
