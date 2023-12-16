@@ -9,4 +9,4 @@ router = APIRouter(
 
 @router.get('/{id}')
 async def get_channel(id):
-    return
+    return '/images/НТВ/Иконки/icon.jpg'

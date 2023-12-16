@@ -27,3 +27,5 @@ def get_programm_db(idprgramm):
         programm_info[3].append(programm_info_db[i][2])
     connection.close()
     return programm_info
+
+print(get_programm_db(5))
